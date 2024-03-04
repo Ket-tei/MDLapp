@@ -28,55 +28,6 @@ export default function Data(searchValue) {
     );
   }
 
-  let acessTokenBody = {
-    "client_id":"150631068543-tflnu1hn2jhoqil0slqjhq542g8q4f5m.apps.googleusercontent.com",
-    "client_secret":"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",
-    "refresh_token":"1//048rKgYFLeNJYCgYIARAAGAQSNwF-L9IrHIPhgwSRnIcDKhiZ27p9mCEFC-PXzywH-YDpg3-PqmJ4fjYq_3AH48mRV3HFBpTXEkY",
-    "grant_type":"refresh_token"
-  };
-
-  function deleteRow(index) {
-
-    var postData = {
-      "ranges": [
-        `A${index}:F${index}`
-      ]
-    };
-
-    var AuthorizationHeaders = {
-      headers: {
-        "Authorization": "Bearer " + acessToken,
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      }
-    };
-
-    axios.post('https://sheets.googleapis.com/v4/spreadsheets/1tJ8tZx0B9V9tzbIuFpom1u6545r-uvE6We7E8tCUtQI/values:batchClear?valueInputOption=USER_ENTERED&key=AIzaSyDzbsBHSRzvmAm07NDZeKn2jTTPTXWFZwc', postData, AuthorizationHeaders)
-    .then((resp) => {
-    })
-    .catch((erro) => {
-      axios.post('https://oauth2.googleapis.com/token', acessTokenBody)
-      .then((res) => {
-        acessToken = res.data.access_token;
-
-        AuthorizationHeaders = {
-          headers: {
-            "Authorization": "Bearer " + acessToken,
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-          }
-        };
-      
-        axios.post('https://sheets.googleapis.com/v4/spreadsheets/1tJ8tZx0B9V9tzbIuFpom1u6545r-uvE6We7E8tCUtQI/values:batchClear?valueInputOption=USER_ENTERED&key=AIzaSyDzbsBHSRzvmAm07NDZeKn2jTTPTXWFZwc', postData, AuthorizationHeaders)
-        .then((resp) => {
-        })
-        .catch((erro) => {
-          console.log("AXIOS ERROR: ", erro);
-        })
-      })
-    })
-  }
-
   return (
     <ScrollView>
       {/* <Search/> */}
