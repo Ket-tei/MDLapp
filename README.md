@@ -16,3 +16,7 @@ Given these constraints, I chose to build the app with React-Native and utilize 
 Regarding Graphic Charts, I didn't have any constraints because the association has none.
 
 These are the different screens of the app for now:
+
+![alt text](https://github.com/Ket-tei/MDLapp/blob/master/ressourcesReadMe/screen1.png)
+![alt text](https://github.com/Ket-tei/MDLapp/blob/master/ressourcesReadMe/screen2.png)
+![alt text](https://github.com/Ket-tei/MDLapp/blob/master/ressourcesReadMe/screen3.png)
