@@ -39,6 +39,9 @@ export default function HomeScreen({navigation}) {
   }
 
   async function changeMessage() {
+    if (messageMDL == '') {
+      messageMDL = '-';
+    }
     XWing(acessToken, "MessageMDL!A2", [messageMDL])
     setMessageMDL('');
   }

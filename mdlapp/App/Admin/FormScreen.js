@@ -38,7 +38,8 @@ function FormScreen() {
     XWing(acessToken, "DonneeEtu!A"+String(parseInt(value[0][1])+2), [nom, prenom, classe, tel, image, email]);
 
     XWing(acessToken, "StatutMDL!B2", [parseInt(value[0][1])+1]);
-
+    value[0][1] = (parseInt(value[0][1]) + 1).toString();
+    
     setNom('');
     setPrenom('');
     setClasse('');
