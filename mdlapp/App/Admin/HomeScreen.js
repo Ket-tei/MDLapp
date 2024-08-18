@@ -70,7 +70,7 @@ export default function HomeScreen({navigation}) {
             placeholder={value[0][0]}
             value={messageMDL}
           />
-          <Button color="#ffc265" title="Mettre à jour le message" onPress={() => {changeMessage()}}/>
+          <Button color="#79b1db"  title="Mettre à jour le message" onPress={() => {changeMessage()}}/>
         </View>
 
       </View>
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
   add: {
     position: 'absolute',
-    backgroundColor: '#fbebc7',
+    backgroundColor: '#d4ebfc',
     borderRadius: 50,
     left: '47.5%',
     bottom: 58,

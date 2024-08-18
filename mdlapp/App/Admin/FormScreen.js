@@ -51,12 +51,12 @@ function FormScreen() {
 	};
 
 	return (
-		<ScrollView>
+		<ScrollView scrollEnabled={false}>
       <View style={styles.container}>
         <Text style={styles.title}>Ajouter un Adhérant</Text>
 
         <TextInput
-          selectionColor={'#ffc265'}
+          selectionColor={'#79b1db'}
           style={styles.input}
           autoComplete='name'
           onChangeText={(e) => setPrenom(e)}
@@ -64,7 +64,7 @@ function FormScreen() {
           value={prenom}
         />
         <TextInput
-          selectionColor={'#ffc265'}
+          selectionColor={'#79b1db'}
           style={styles.input}
           autoComplete='family-name'
           onChangeText={(e) => setNom(e)}
@@ -72,14 +72,14 @@ function FormScreen() {
           value={nom}
         />
         <TextInput
-          selectionColor={'#ffc265'}
+          selectionColor={'#79b1db'}
           style={styles.input}
           onChangeText={(e) => setClasse(e)}
           placeholder="Classe"
           value={classe}
         />
         <TextInput
-          selectionColor={'#ffc265'}
+          selectionColor={'#79b1db'}
           style={styles.input}
           keyboardType="numeric"
           autoComplete='tel'
@@ -88,10 +88,10 @@ function FormScreen() {
           value={tel}
         />
         <SelectList
-          selectionColor={'#ffc265'}
+          selectionColor={'#79b1db'}
           boxStyles={{
             borderWidth: 3,
-            borderColor: '#ffc265',
+            borderColor: '#79b1db',
             borderRadius: 10,
             padding: 10,
             marginBottom: 17,
@@ -101,7 +101,7 @@ function FormScreen() {
             top: 45,
             position: 'absolute',
             borderWidth: 3,
-            borderColor: '#ffc265',
+            borderColor: '#79b1db',
             borderRadius: 10,
             padding: 10,
             width: '80%',
@@ -123,14 +123,14 @@ function FormScreen() {
             { label: "N'autorise pas le droit à l'image", value: 'Non' },
           ]}
           search={false}
-          primaryColor={'#ffc265'}
+          primaryColor={'#79b1db'}
           setSelected={(e) => setImage(e)}
           placeholder="Droit à l'image"
           value={image}
           save={image}
         />
         <TextInput
-          selectionColor={'#ffc265'}
+          selectionColor={'#79b1db'}
           style={styles.input}
           autoComplete='email'
           onChangeText={(e) => setEmail(e)}
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 3,
-    borderColor: '#ffc265',
+    borderColor: '#79b1db',
     borderRadius: 10,
     padding: 10,
     marginBottom: 17,
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
   },
   submitButton: {
     padding: 10,
-    backgroundColor: '#ffc265',
+    backgroundColor: '#79b1db',
     borderRadius: 20,
     width: '70%',
     color: '#fff',

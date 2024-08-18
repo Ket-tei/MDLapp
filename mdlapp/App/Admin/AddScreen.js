@@ -23,7 +23,7 @@ export default function OptionScreen({navigation}) {
           <Data/>
         </View>
         
-        {/* test */}
+        {/* Form */}
         <FormScreen/>
 
       </View>
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
   add: {
     position: 'absolute',
-    backgroundColor: '#fbebc7',
+    backgroundColor: '#d4ebfc',
     borderRadius: 50,
     left: '47.5%',
     bottom: 58,

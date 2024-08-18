@@ -5,11 +5,13 @@ import {
   Text,
   TextInput,
   Animated,
+  Pressable,
 } from 'react-native';
 import FetchData from "../Admin/FetchData";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import md5 from 'md5';
 import Header from "../Admin/Header";
+import LottieView from 'lottie-react-native';
 
 const ButtonAnim = Animated.createAnimatedComponent(Text);
 const delay = ms => new Promise(
@@ -46,6 +48,50 @@ export default function ConnectScreen({navigation}) {
     outputRange: [1, 0, 1],
   });
 
+  const Eye2Ref = useRef();
+  let eye2Manager = false;
+
+  useEffect(() => {
+    closeEye2();
+  }, []);
+  const closeEye2 = () => {
+    Eye2Ref?.current?.play(100,100);
+    eye2Manager = false;
+  }
+  const openEye2 = () => {
+    Eye2Ref?.current?.play(190,290);
+    eye2Manager = true;
+  }
+  const manageEye2 = () => {
+    if (!eye2Manager) {
+      openEye2();
+    } else {
+      closeEye2();
+    }
+  }
+
+  const Eye1Ref = useRef();
+  let eye1Manager = false;
+
+  useEffect(() => {
+    closeEye1();
+  }, []);
+  const closeEye1 = () => {
+    Eye1Ref?.current?.play(100,100);
+    eye1Manager = false;
+  }
+  const openEye1 = () => {
+    Eye1Ref?.current?.play(190,290);
+    eye1Manager = true;
+  }
+  const manageEye1 = () => {
+    if (!eye1Manager) {
+      openEye1();
+    } else {
+      closeEye1();
+    }
+  }
+
   useEffect(() => {
     let data = async () => {
       setValue(await FetchData(process.env.EXPO_PUBLIC_WORKSHEET_NAME_MDP));
@@ -60,13 +106,32 @@ export default function ConnectScreen({navigation}) {
 
   let ADMIN_PASS = value[0][0];
   let STAFF_PASS = value[0][1];
+  passStaffManager = false;
+  passAdminManager = false;
 
-  function hidePassStaff() {
-    return passStaff.replace(/./g, '●');
+  function managePassStaff() {
+    console.log(eye1Manager);
+    if (eye1Manager) {
+      return passStaff;
+    }
+    else {
+      return passStaff.replace(/./g, '●');
+    }
   }
 
   function hidePassAdmin() {
     return passAdmin.replace(/./g, '●');
+  }
+  function showPassAdmin() {
+    return passAdmin;
+  }
+  function managePassAdmin() {
+    if (!passAdminManager) {
+      showPassAdmin();
+    }
+    else {
+      hidePassAdmin();
+    }
   }
   
   function checkPassAdmin() {
@@ -103,25 +168,52 @@ export default function ConnectScreen({navigation}) {
         <Header value={"Compte"}/>
         <View style={styles.connect}>
           <Text style={styles.title}>Se connecter en tant que :</Text>
+          
           <ButtonAnim style={[styles.button,{opacity: iconOpacityAd}]} onPress={() => {setIconPressedAd(!iconPressedAd); changeOpacity(opacityAnimAd, iconPressedAd, 'HomeAd');}} >Adhérant</ButtonAnim>
+          
           <ButtonAnim style={[styles.button,{opacity: iconOpacityStaff}]} onPress={() => {setIconPressedStaff(!iconPressedStaff); changeOpacity(opacityAnimStaff, iconPressedStaff, 'None');checkPassStaff();}}>Staff</ButtonAnim>
-          <TextInput
-            selectionColor={'#ffc265'}
-            style={styles.input}
-            autoComplete='current-password'
-            onChangeText={(e) => setPassStaff(e)}
-            placeholder="Mot de passe Staff"
-            value={hidePassStaff()}
-          />
+          <View style={styles.adminPass}>
+            <TextInput
+              selectionColor={'#ffc265'}
+              style={styles.input}
+              autoComplete='current-password'
+              onChangeText={(e) => setPassStaff(e)}
+              placeholder="Mot de passe Staff"
+              value={managePassStaff()}
+            />
+            <Pressable style={styles.eyes} onPress={manageEye1}>
+              <LottieView
+                ref={Eye1Ref}
+                style={styles.eye}
+                source={require('../../lottie/passwordEyes1.json')}
+                loop={false}
+                autoPlay={true}
+              />
+            </Pressable>
+            
+          </View>
+          
           <ButtonAnim style={[styles.button,{opacity: iconOpacityAdmin}]} onPress={() => {setIconPressedAdmin(!iconPressedAdmin); changeOpacity(opacityAnimAdmin, iconPressedAdmin, 'None');checkPassAdmin();}}>Administrateur</ButtonAnim>
-          <TextInput
-            selectionColor={'#ffc265'}
-            style={styles.input}
-            autoComplete='current-password'
-            onChangeText={(e) => setPassAdmin(e)}
-            placeholder="Mot de passe Administrateur"
-            value={hidePassAdmin()}
-          />
+          <View style={styles.adminPass}>
+            <TextInput
+              selectionColor={'#ffc265'}
+              style={styles.input}
+              autoComplete='current-password'
+              onChangeText={(e) => setPassAdmin(e)}
+              placeholder="Mot de passe Administrateur"
+              value={hidePassAdmin()}
+            />
+            <Pressable style={styles.eyes} onPress={manageEye2}>
+              <LottieView
+                ref={Eye2Ref}
+                style={styles.eye}
+                source={require('../../lottie/passwordEyes.json')}
+                loop={false}
+                autoPlay={true}
+              />
+            </Pressable>
+          </View>
+
         </View>
       </View>
     </SafeAreaView>
@@ -164,5 +256,20 @@ const styles = StyleSheet.create({
     margin: 8,
     padding: 4,
     borderRadius: 10,
+  },
+  adminPass: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  eye: {
+    flex: 1,
+  },
+  eyes: {
+    position: 'absolute',
+    left: '63%',
+    bottom: '-10%',
+    height: '100%',
+    width: '10%',
   },
 });

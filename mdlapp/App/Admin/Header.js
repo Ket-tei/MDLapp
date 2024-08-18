@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   header: {
-    backgroundColor: "#ffc265",
+    backgroundColor: "#79b1db",
     height: 30,
   },
 });

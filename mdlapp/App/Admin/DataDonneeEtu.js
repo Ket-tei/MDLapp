@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, ScrollView, ActivityIndicator, View, Animated, Pressable } from "react-native";
+import { RefreshControl, StyleSheet, Text, ScrollView, ActivityIndicator, View, Animated, Pressable } from "react-native";
 import { Card } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
 import FetchData from "./FetchData";
@@ -24,6 +24,20 @@ export default function Data(searchValue) {
     outputRange: [1, 0, 1],
   });
 
+  // Refresh logic
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    let data = async () => {
+      setValue(await FetchData(process.env.EXPO_PUBLIC_WORKSHEET_NAME_ETU));
+    };
+    data();
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
+
   useEffect(() => {
     let data = async () => {
       setValue(await FetchData(process.env.EXPO_PUBLIC_WORKSHEET_NAME_ETU));
@@ -35,7 +49,7 @@ export default function Data(searchValue) {
       <ActivityIndicator
         size= "x-large"
         animating={true}
-        color="#ffc265"
+        color="#79b1db"
         style={styles.spin}
       />
     );
@@ -57,7 +71,9 @@ export default function Data(searchValue) {
   }
 
   return (
-    <ScrollView>
+    <ScrollView refreshControl={
+      <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+    }>
       {/* <Search/> */}
       {value.map((files, index) => {
         // Vérifier si le prénom correspond à la valeur de la recherche
@@ -129,7 +145,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     borderWidth: 0,
     borderRadius: 10,
-    backgroundColor: "#ffc265",
+    backgroundColor: "#79b1db",
   },
   content: {
     display: "flex",

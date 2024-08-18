@@ -31,6 +31,7 @@ export default function ListeScreen({navigation}) {
               style={styles.searchbar}
             />
           </View>
+          {/* Block of Data */}
           <Data value={searchQuery}/>
         </View>
       </View>
@@ -55,13 +56,13 @@ const styles = StyleSheet.create({
   },
   add: {
     position: 'absolute',
-    backgroundColor: '#fbebc7',
+    backgroundColor: '#d4ebfc',
     borderRadius: 50,
     left: '47.5%',
     bottom: 58,
   },
   content: {
-    backgroundColor: '#ffc265',
+    backgroundColor: '#79b1db',
   },
   searchbar: {
     width: '90%',
@@ -69,6 +70,6 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     marginBottom: 10,
-    backgroundColor: '#fbebc7',
+    backgroundColor: '#d4ebfc',
   },
 });

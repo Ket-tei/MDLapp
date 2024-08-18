@@ -57,18 +57,18 @@ export default function Nav(nav) {
   }
 
   return (
-    <View style={styles.nav} color="#ffc265">
+    <View style={styles.nav} color="#79b1db">
       <View style={styles.add}>
-        <IoniconsAnim name="add-outline" size={50} color="#ffc265" style={{transform: [{rotate: iconOpacityAdd}]}} onPress={() => {setIconPressedAdd(!iconPressedAdd); changeOpacity(opacityAnimAdd, iconPressedAdd, 'Add');}} />
+        <IoniconsAnim name="add-outline" size={50} color="#79b1db" style={{transform: [{rotate: iconOpacityAdd}]}} onPress={() => {setIconPressedAdd(!iconPressedAdd); changeOpacity(opacityAnimAdd, iconPressedAdd, 'Add');}} />
       </View>
       <View style={styles.liste}>
-        <IoniconsAnim name="person-circle-outline" size={40} color="#ffc265" style={{opacity: iconOpacityListe}} onPress={() => {setIconPressedListe(!iconPressedListe); changeOpacity(opacityAnimListe, iconPressedListe, 'Liste');}} />
+        <IoniconsAnim name="person-circle-outline" size={40} color="#79b1db" style={{opacity: iconOpacityListe}} onPress={() => {setIconPressedListe(!iconPressedListe); changeOpacity(opacityAnimListe, iconPressedListe, 'Liste');}} />
       </View>
       <View style={styles.home}>
-        <IoniconsAnim name="home-outline" size={40} color="#ffc265" style={{opacity: iconOpacityHome}} onPress={() => {setIconPressedHome(!iconPressedHome); changeOpacity(opacityAnimHome, iconPressedHome, 'Home');}} />
+        <IoniconsAnim name="home-outline" size={40} color="#79b1db" style={{opacity: iconOpacityHome}} onPress={() => {setIconPressedHome(!iconPressedHome); changeOpacity(opacityAnimHome, iconPressedHome, 'Home');}} />
       </View>
       <View style={styles.home}>
-        <IoniconsAnim name="settings-outline" size={40} color="#ffc265" style={{opacity: iconOpacityOption}} onPress={() => {setIconPressedOption(!iconPressedOption); changeOpacity(opacityAnimOption, iconPressedOption, 'Option');}} />
+        <IoniconsAnim name="settings-outline" size={40} color="#79b1db" style={{opacity: iconOpacityOption}} onPress={() => {setIconPressedOption(!iconPressedOption); changeOpacity(opacityAnimOption, iconPressedOption, 'Option');}} />
       </View>
     </View>
   );
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   },
   add: {
     position: 'absolute',
-    backgroundColor: '#fbebc7',
+    backgroundColor: '#d4ebfc',
     borderRadius: 50,
     left: '47.5%',
     bottom: 58,

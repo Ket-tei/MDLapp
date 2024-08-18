@@ -27,8 +27,8 @@ export default function OptionScreen({navigation}) {
         <View style={styles.options}>
           <View style={styles.dark}>
             <ToggleSwitch
-              disabled={true}
-              isOn={false}
+              // disabled={true}
+              // isOn={false}
               onColor="black"
               offColor="lightgrey"
               label="Dark Mode"
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
   add: {
     position: 'absolute',
-    backgroundColor: '#fbebc7',
+    backgroundColor: '#d4ebfc',
     borderRadius: 50,
     left: '47.5%',
     bottom: 58,
