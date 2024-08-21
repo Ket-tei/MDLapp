@@ -72,7 +72,7 @@ export default function Data(searchValue) {
 
   return (
     <ScrollView refreshControl={
-      <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      <RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>
     }>
       {/* <Search/> */}
       {value.map((files, index) => {

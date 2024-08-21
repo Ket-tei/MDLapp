@@ -49,7 +49,7 @@ export default function HomeScreen({navigation}) {
   return (
     <SafeAreaView>
       <View style={styles.page}>
-        <Header value={"Acceuil"}/>
+        <Header value={"Accueil"}/>
         {/* Menu */}
         <Nav component={navigation}/>
         

@@ -24,7 +24,7 @@ export default function ListeScreenStaff({navigation}) {
           {/* SearchBar */}
           <View style={styles.content} >
             <Searchbar
-              selectionColor={'#ffc265'}
+              selectionColor={'#79b1db'}
               placeholder="Search"
               onChangeText={setSearchQuery}
               value={searchQuery}
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     bottom: 58,
   },
   content: {
-    backgroundColor: '#ffc265',
+    backgroundColor: '#79b1db',
   },
   searchbar: {
     width: '90%',

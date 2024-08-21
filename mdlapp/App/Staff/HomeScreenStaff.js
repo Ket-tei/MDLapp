@@ -11,7 +11,6 @@ import React, { useState, useEffect } from "react";
 import FetchData from "../Admin/FetchData";
 import Data from "../Admin/DataSTatutMDL";
 import Nav from "./NavStaff.js";
-import { XWing } from "../Commun/XWing.js";
 
 acessToken = "";
 
@@ -31,7 +30,7 @@ export default function HomeScreenStaff({navigation}) {
       <ActivityIndicator
         size= "x-large"
         animating={true}
-        color="#ffc265"
+        color="#79b1db"
         style={styles.spin}
       />
     );

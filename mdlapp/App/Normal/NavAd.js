@@ -41,12 +41,12 @@ export default function Nav(nav) {
   }
 
   return (
-    <View style={styles.nav} color="#ffc265">
+    <View style={styles.nav} color="#79b1db">
       <View style={styles.home}>
-        <IoniconsAnim name="home-outline" size={40} color="#ffc265" style={{opacity: iconOpacityHome}} onPress={() => {setIconPressedHome(!iconPressedHome); changeOpacity(opacityAnimHome, iconPressedHome, 'HomeAd');}} />
+        <IoniconsAnim name="home-outline" size={40} color="#79b1db" style={{opacity: iconOpacityHome}} onPress={() => {setIconPressedHome(!iconPressedHome); changeOpacity(opacityAnimHome, iconPressedHome, 'HomeAd');}} />
       </View>
       <View style={styles.home}>
-        <IoniconsAnim name="settings-outline" size={40} color="#ffc265" style={{opacity: iconOpacityOption}} onPress={() => {setIconPressedOption(!iconPressedOption); changeOpacity(opacityAnimOption, iconPressedOption, 'OptionAd');}} />
+        <IoniconsAnim name="settings-outline" size={40} color="#79b1db" style={{opacity: iconOpacityOption}} onPress={() => {setIconPressedOption(!iconPressedOption); changeOpacity(opacityAnimOption, iconPressedOption, 'OptionAd');}} />
       </View>
     </View>
   );

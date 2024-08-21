@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, Animated, View } from "react-native";
+import { RefreshControl, StyleSheet, Text, Animated, View } from "react-native";
 import { XWing } from "../Commun/XWing";
 import FetchData from "./FetchData";
 import { Card } from "react-native-paper";
@@ -19,6 +19,21 @@ export default function Data() {
     outputRange: ['transparent', '#49494944', 'transparent'],
   });
 
+  // Refresh logic
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    let data = async () => {
+      setValue(await FetchData(process.env.EXPO_PUBLIC_WORKSHEET_NAME_STATUS));
+    };
+    data();
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
+
+
   useEffect(() => {
     let data = async () => {
       setValue(await FetchData(process.env.EXPO_PUBLIC_WORKSHEET_NAME_STATUS));
@@ -33,6 +48,8 @@ export default function Data() {
 
   async function changeStatus() {
     XWing(acessToken, "StatutMDL!A2", [(value[0][0] == "Fermé") ? "Ouvert" : "Fermé"])
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    onRefresh();
   }
 
   async function changeBG(opacityAnimComponent, iconPressedComponent) {

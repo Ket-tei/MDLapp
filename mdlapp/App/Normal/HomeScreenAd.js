@@ -27,7 +27,7 @@ export default function HomeScreenAd({navigation}) {
       <ActivityIndicator
         size= "x-large"
         animating={true}
-        color="#ffc265"
+        color="#79b1db"
         style={styles.spin}
       />
     );

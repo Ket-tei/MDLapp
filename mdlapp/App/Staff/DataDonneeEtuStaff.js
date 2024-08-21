@@ -19,7 +19,7 @@ export default function Data(searchValue) {
       <ActivityIndicator
         size= "x-large"
         animating={true}
-        color="#ffc265"
+        color="#79b1db"
         style={styles.spin}
       />
     );
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     borderWidth: 0,
     borderRadius: 10,
-    backgroundColor: "#ffc265",
+    backgroundColor: "#79b1db",
   },
   content: {
     display: "flex",
