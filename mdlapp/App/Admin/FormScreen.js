@@ -90,7 +90,7 @@ function FormScreen() {
         <SelectList
           selectionColor={'#79b1db'}
           boxStyles={{
-            borderWidth: 3,
+            borderWidth: 2,
             borderColor: '#79b1db',
             borderRadius: 10,
             padding: 10,
@@ -117,7 +117,6 @@ function FormScreen() {
           dropdownItemStyles={{
             color: 'grey',
           }}
-          pl
           data={[
             { label: "Autorise le droit à l'image", value: 'Oui' },
             { label: "N'autorise pas le droit à l'image", value: 'Non' },
@@ -162,7 +161,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   input: {
-    borderWidth: 3,
+    borderWidth: 2,
     borderColor: '#79b1db',
     borderRadius: 10,
     padding: 10,
@@ -177,7 +176,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     fontSize: 18,
-    fontWeight: 'bold',
   },
   successText: {
     color: 'green',

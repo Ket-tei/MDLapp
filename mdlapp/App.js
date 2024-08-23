@@ -14,6 +14,7 @@ import OptionScreenStaff from "./App/Staff/OptionScreenStaff";
 import OptionScreenAd from "./App/Normal/OptionScreenAd";
 import AddScreen from "./App/Admin/AddScreen";
 import ConnectScreen from "./App/Commun/ConnectScreen";
+import UpdateScreen from "./App/Commun/UpdateScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ const Screens = () => {
           headerShown: false
         }}
       >
+        <Stack.Screen name="Update" component={UpdateScreen}/>
         <Stack.Screen name="Connect" component={ConnectScreen}/>
         <Stack.Screen name="Home" component={HomeScreen}/>
         <Stack.Screen name="HomeStaff" component={HomeScreenStaff}/>

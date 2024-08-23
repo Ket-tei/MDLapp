@@ -48,7 +48,7 @@ export default function Data() {
 
   async function changeStatus() {
     XWing(acessToken, "StatutMDL!A2", [(value[0][0] == "Fermé") ? "Ouvert" : "Fermé"])
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise(resolve => setTimeout(resolve, 1500));
     onRefresh();
   }
 

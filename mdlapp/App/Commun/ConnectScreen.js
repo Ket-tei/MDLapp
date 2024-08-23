@@ -12,6 +12,7 @@ import React, { useEffect, useState, useRef } from "react";
 import md5 from 'md5';
 import Header from "../Admin/Header";
 import LottieView from 'lottie-react-native';
+import { Image } from 'react-native-elements';
 
 const ButtonAnim = Animated.createAnimatedComponent(Text);
 const delay = ms => new Promise(
@@ -139,6 +140,7 @@ export default function ConnectScreen({navigation}) {
       <View style={styles.page}>
         <Header value={"Compte"}/>
         <View style={styles.connect}>
+          <Image source={require('../../assets/icon.png')} style={styles.logo} />
           <Text style={styles.title}>Se connecter en tant que :</Text>
           
           <ButtonAnim style={[styles.button,{opacity: iconOpacityAd}]} onPress={() => {setIconPressedAd(!iconPressedAd); changeOpacity(opacityAnimAd, iconPressedAd, 'HomeAd');}} >Adhérant</ButtonAnim>
@@ -197,12 +199,18 @@ export default function ConnectScreen({navigation}) {
 const styles = StyleSheet.create({
   page: {
     height: '100%',
+    backgroundColor: 'white',
   },
   connect: {
-    height: '50%',
+    height: '30%',
     justifyContent: 'center',
     alignItems: 'center',
     top: '27%',
+  },
+  logo: {
+    width: 150,
+    height: 150,
+    marginBottom: 20,
   },
   title: {
     fontSize: 20,
@@ -210,7 +218,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   button: {
-    fontWeight: '600',
+    color: 'white',
+    fontWeight: '400',
     backgroundColor: '#79b1db',
     justifyContent: 'center',
     alignItems: 'center',
@@ -221,8 +230,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   input: {
-    borderColor: '#79b1db',
-    borderWidth: 3,
+    borderLeftColor: '#79b1db',
+    borderTopColor: '#79b1db',
+    borderBottomColor: '#79b1db',
+    borderRightColor: 'white',
+    borderWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
@@ -241,8 +253,8 @@ const styles = StyleSheet.create({
   },
   eyes: {
     position: 'absolute',
-    left: '63%',
-    bottom: '-10%',
+    left: '56%',
+    bottom: '-13%',
     height: '100%',
     width: '10%',
   },
