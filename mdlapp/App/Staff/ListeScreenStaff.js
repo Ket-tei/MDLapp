@@ -69,6 +69,6 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     marginBottom: 10,
-    backgroundColor: '#fbebc7',
+    backgroundColor: '#d4ebfc',
   },
 });

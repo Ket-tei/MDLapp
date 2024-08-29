@@ -2,7 +2,6 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import "react-native-gesture-handler";
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import HomeScreen from "./App/Admin/HomeScreen";
 import HomeScreenStaff from "./App/Staff/HomeScreenStaff";
